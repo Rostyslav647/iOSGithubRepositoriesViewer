@@ -19,7 +19,7 @@ class RepositoriesVC: UIViewController {
     var cellDescriptor = CellDescriptor(nibName: "RepositoryCell")
     let repositoryViewModel = RepositoryViewModel()
     let disposeBag = DisposeBag()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,9 @@ class RepositoriesVC: UIViewController {
             }
             .disposed(by: self.disposeBag)
         
-        repositoriesTableView.rx.itemSelected.map {
-            $0.item
+        repositoriesTableView.rx.itemSelected
+            .map {
+                $0.item
             }.subscribe(onNext: { [weak self] (index) in
                 let model = self?.repositoryViewModel.dataSource.value[index]
                 self?.repositoriesTableView.deselectRow(at: IndexPath.init(row: index, section: 0), animated: true)
