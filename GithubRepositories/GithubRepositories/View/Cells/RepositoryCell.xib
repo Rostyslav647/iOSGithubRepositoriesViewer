@@ -88,7 +88,7 @@
                     <constraint firstItem="jPz-Ro-4eM" firstAttribute="top" secondItem="Aac-un-ZAR" secondAttribute="bottom" constant="6" id="tLy-C2-WDB"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" name="selectedKnobColor" catalog="System" colorSpace="catalog"/>
+            <color key="backgroundColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descriptionLabel" destination="uwV-4v-s9P" id="ZIh-tn-9gg"/>
