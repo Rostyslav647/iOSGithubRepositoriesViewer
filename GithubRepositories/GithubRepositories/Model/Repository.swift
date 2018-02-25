@@ -11,36 +11,37 @@ import Foundation
 typealias Repositories = [Repository]
 
 struct Repository: Codable {
-    let id: Int
-    let name, fullName: String
-    let owner: Owner
-    let purplePrivate: Bool
-    let htmlURL, description: String
-    let fork: Bool
-    let url, forksURL, keysURL, collaboratorsURL: String
-    let teamsURL, hooksURL, issueEventsURL, eventsURL: String
-    let assigneesURL, branchesURL, tagsURL, blobsURL: String
-    let gitTagsURL, gitRefsURL, treesURL, statusesURL: String
-    let languagesURL, stargazersURL, contributorsURL, subscribersURL: String
-    let subscriptionURL, commitsURL, gitCommitsURL, commentsURL: String
-    let issueCommentURL, contentsURL, compareURL, mergesURL: String
-    let archiveURL, downloadsURL, issuesURL, pullsURL: String
-    let milestonesURL, notificationsURL, labelsURL, releasesURL: String
-    let deploymentsURL, createdAt, updatedAt, pushedAt: String
-    let gitURL, sshURL, cloneURL, svnURL: String
+    let id: Int?
+    let name, fullName: String?
+    let owner: Owner?
+    let purplePrivate: Bool?
+    let htmlURL, description: String?
+
+    let fork: Bool?
+    let url, forksURL, keysURL, collaboratorsURL: String?
+    let teamsURL, hooksURL, issueEventsURL, eventsURL: String?
+    let assigneesURL, branchesURL, tagsURL, blobsURL: String?
+    let gitTagsURL, gitRefsURL, treesURL, statusesURL: String?
+    let languagesURL, stargazersURL, contributorsURL, subscribersURL: String?
+    let subscriptionURL, commitsURL, gitCommitsURL, commentsURL: String?
+    let issueCommentURL, contentsURL, compareURL, mergesURL: String?
+    let archiveURL, downloadsURL, issuesURL, pullsURL: String?
+    let milestonesURL, notificationsURL, labelsURL, releasesURL: String?
+    let deploymentsURL, createdAt, updatedAt, pushedAt: String?
+    let gitURL, sshURL, cloneURL, svnURL: String?
     let homepage: String?
-    let size, stargazersCount, watchersCount: Int
+    let size, stargazersCount, watchersCount: Int?
     let language: String?
-    let hasIssues, hasProjects, hasDownloads, hasWiki: Bool
-    let hasPages: Bool
-    let forksCount: Int
+    let hasIssues, hasProjects, hasDownloads, hasWiki: Bool?
+    let hasPages: Bool?
+    let forksCount: Int?
     let mirrorURL: JSONNull?
-    let archived: Bool
-    let openIssuesCount: Int
+    let archived: Bool?
+    let openIssuesCount: Int?
     let license: License?
-    let forks, openIssues, watchers: Int
-    let defaultBranch: String
-    let permissions: Permissions
+    let forks, openIssues, watchers: Int?
+    let defaultBranch: String?
+    let permissions: Permissions?
 
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -157,142 +158,6 @@ struct Permissions: Codable {
     let admin, push, pull: Bool
 }
 
-// MARK: Convenience initializers
-
-extension Repository {
-    init?(data: Data) {
-        guard let me = try? JSONDecoder().decode(Repository.self, from: data) else { return nil }
-        self = me
-    }
-
-    init?(_ json: String, using encoding: String.Encoding = .utf8) {
-        guard let data = json.data(using: encoding) else { return nil }
-        self.init(data: data)
-    }
-
-    init?(fromURL url: String) {
-        guard let url = URL(string: url) else { return nil }
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        self.init(data: data)
-    }
-
-    var jsonData: Data? {
-        return try? JSONEncoder().encode(self)
-    }
-
-    var json: String? {
-        guard let data = self.jsonData else { return nil }
-        return String(data: data, encoding: .utf8)
-    }
-}
-
-extension License {
-    init?(data: Data) {
-        guard let me = try? JSONDecoder().decode(License.self, from: data) else { return nil }
-        self = me
-    }
-
-    init?(_ json: String, using encoding: String.Encoding = .utf8) {
-        guard let data = json.data(using: encoding) else { return nil }
-        self.init(data: data)
-    }
-
-    init?(fromURL url: String) {
-        guard let url = URL(string: url) else { return nil }
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        self.init(data: data)
-    }
-
-    var jsonData: Data? {
-        return try? JSONEncoder().encode(self)
-    }
-
-    var json: String? {
-        guard let data = self.jsonData else { return nil }
-        return String(data: data, encoding: .utf8)
-    }
-}
-
-extension Owner {
-    init?(data: Data) {
-        guard let me = try? JSONDecoder().decode(Owner.self, from: data) else { return nil }
-        self = me
-    }
-
-    init?(_ json: String, using encoding: String.Encoding = .utf8) {
-        guard let data = json.data(using: encoding) else { return nil }
-        self.init(data: data)
-    }
-
-    init?(fromURL url: String) {
-        guard let url = URL(string: url) else { return nil }
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        self.init(data: data)
-    }
-
-    var jsonData: Data? {
-        return try? JSONEncoder().encode(self)
-    }
-
-    var json: String? {
-        guard let data = self.jsonData else { return nil }
-        return String(data: data, encoding: .utf8)
-    }
-}
-
-extension Permissions {
-    init?(data: Data) {
-        guard let me = try? JSONDecoder().decode(Permissions.self, from: data) else { return nil }
-        self = me
-    }
-
-    init?(_ json: String, using encoding: String.Encoding = .utf8) {
-        guard let data = json.data(using: encoding) else { return nil }
-        self.init(data: data)
-    }
-
-    init?(fromURL url: String) {
-        guard let url = URL(string: url) else { return nil }
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        self.init(data: data)
-    }
-
-    var jsonData: Data? {
-        return try? JSONEncoder().encode(self)
-    }
-
-    var json: String? {
-        guard let data = self.jsonData else { return nil }
-        return String(data: data, encoding: .utf8)
-    }
-}
-
-extension Array where Element == Repositories.Element {
-    init?(data: Data) {
-        guard let me = try? JSONDecoder().decode(Repositories.self, from: data) else { return nil }
-        self = me
-    }
-
-    init?(_ json: String, using encoding: String.Encoding = .utf8) {
-        guard let data = json.data(using: encoding) else { return nil }
-        self.init(data: data)
-    }
-
-    init?(fromURL url: String) {
-        guard let url = URL(string: url) else { return nil }
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        self.init(data: data)
-    }
-
-    var jsonData: Data? {
-        return try? JSONEncoder().encode(self)
-    }
-
-    var json: String? {
-        guard let data = self.jsonData else { return nil }
-        return String(data: data, encoding: .utf8)
-    }
-}
 
 // MARK: Encode/decode helpers
 
