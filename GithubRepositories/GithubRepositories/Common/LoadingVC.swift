@@ -11,11 +11,11 @@ import UIKit
 class LoadingVC: UIViewController {
  
     // Activity Indicator
-    private lazy var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    private lazy var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        activityIndicator.color = .black
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(activityIndicator)
         

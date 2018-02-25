@@ -27,16 +27,22 @@ class RepositoryDetailsVC: UIViewController, RepositoryDetailsVCInput {
     // Variable
     let viewModel = RepositoryDetailsViewModel()
     let disposeBag = DisposeBag()
+    let loadingVC = LoadingVC()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateView(viewModel.repository.value)
         setupBindings()
+        self.addChild(loadingVC)
     }
     
     func setupBindings(){
         viewModel.tagsObservable
+            .do(onNext:{ [weak self] tags in
+                self?.loadingVC.remove()
+            })
             .map{ tags -> String in
                 let tagsString = tags.reduce("", { result, tag -> String in
                     return result + (tag.name ?? "") + "\n"

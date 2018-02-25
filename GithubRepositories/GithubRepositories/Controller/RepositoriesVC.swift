@@ -9,7 +9,6 @@
 import RxCocoa
 import RxSwift
 
-
 class RepositoriesVC: UIViewController {
     
     // Outlets
@@ -19,7 +18,7 @@ class RepositoriesVC: UIViewController {
     var cellDescriptor = CellDescriptor(nibName: "RepositoryCell")
     let repositoryViewModel = RepositoryViewModel()
     let disposeBag = DisposeBag()
-    
+    let loadingVC = LoadingVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +26,7 @@ class RepositoriesVC: UIViewController {
         cellDescriptor.register(in: repositoriesTableView)
         addDelegate()
         setupTableViewBinding()
+        self.addChild(loadingVC)
     }
     
     func addDelegate(){
@@ -37,6 +37,9 @@ class RepositoriesVC: UIViewController {
     func setupTableViewBinding() {
         
         repositoryViewModel.dataSourceObservable
+            .do(onNext:  { [unowned self] repositories in
+                    self.loadingVC.remove()
+            })
             .bind(to: self.repositoriesTableView.rx.items(cellIdentifier: cellDescriptor.identifier, cellType: RepositoryCell.self)) {  row, element, cell in
                 
                 cell.configure(element)
@@ -52,7 +55,6 @@ class RepositoriesVC: UIViewController {
                 self?.navigateToDetailedPage(model!)
             })
             .disposed(by:disposeBag)
-        
     }
     
     func navigateToDetailedPage(_ model: Repository){
@@ -66,6 +68,4 @@ extension RepositoriesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
-    
 }
