@@ -1,0 +1,4 @@
+xcassets:
+  paths: GithubRepositories/Assets.xcassets/
+  templateName: swift4
+  output: GithubRepositories/Generated/AssetsImages.swift
