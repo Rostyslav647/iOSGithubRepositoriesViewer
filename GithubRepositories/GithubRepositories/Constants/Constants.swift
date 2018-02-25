@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias CompletionHandler = (_ :[Repository]?) -> ()
+typealias CompletionHandler<T> = (_ :T?) -> ()
 
 // Url Constants
 let BASE_URL = "https://api.github.com"
