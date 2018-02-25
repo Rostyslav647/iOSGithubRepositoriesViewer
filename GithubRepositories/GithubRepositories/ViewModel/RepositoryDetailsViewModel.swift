@@ -13,12 +13,32 @@ class RepositoryDetailsViewModel {
     var repository: Variable<Repository>! {
         willSet{
             repositoryObservable = newValue.asObservable()
+            getTags(for: newValue.value)
         }
     }
-    private let disposeBag = DisposeBag()
     
+    var tags: Variable<Tags> = Variable([])
     
     // Outputs
-    public var repositoryObservable: Observable<Repository>!
+    var repositoryObservable: Observable<Repository>!
+    var tagsObservable: Observable<Tags>!
     
+    init() {
+        self.tagsObservable = tags.asObservable()
+    }
+    
+    func getTags(for repository: Repository) {
+        
+        guard let urlString = repository.tagsURL,
+            let url = URL(string: urlString) else {
+                return
+        }
+        
+        GithubAPIService.shared.getTags(url: url) { [weak self] tags in
+            DispatchQueue.main.async {
+                guard let tags = tags else { return }
+                self?.tags.value = tags
+            }
+        }
+    }
 }
