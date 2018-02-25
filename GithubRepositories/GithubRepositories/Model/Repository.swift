@@ -158,6 +158,59 @@ struct Permissions: Codable {
     let admin, push, pull: Bool
 }
 
+// MARK: Convenience initializers
+
+extension Repository {
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(Repository.self, from: data)
+    }
+    
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+}
+
+extension License {
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(License.self, from: data)
+    }
+    
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+}
+
+extension Owner {
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(Owner.self, from: data)
+    }
+    
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+}
+
+extension Permissions {
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(Permissions.self, from: data)
+    }
+    
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+}
 
 // MARK: Encode/decode helpers
 
