@@ -25,10 +25,10 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aB1-B6-Au1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" name="selectedKnobColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="1" green="0.99088968340000005" blue="0.90267278370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" name="selectedKnobColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" red="1" green="0.9499620138" blue="0.78288319129999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aB1-B6-Au1" secondAttribute="bottom" id="63L-UH-20y"/>
                             <constraint firstItem="aB1-B6-Au1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7Fs-7g-FFr"/>
@@ -154,7 +154,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.99088968340000005" blue="0.90267278370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ncz-gb-xMz" firstAttribute="top" secondItem="aDJ-NO-dJ2" secondAttribute="top" id="AAK-Mr-ogS"/>
                             <constraint firstItem="ncz-gb-xMz" firstAttribute="bottom" secondItem="nZp-Ys-tej" secondAttribute="bottom" id="Xcl-ht-orb"/>
