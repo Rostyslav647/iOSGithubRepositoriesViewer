@@ -10,7 +10,11 @@ import RxCocoa
 import RxSwift
 import SafariServices
 
-class RepositoryDetailsVC: UIViewController {
+protocol RepositoryDetailsVCInput {
+    func configure(with model: Repository)
+}
+
+class RepositoryDetailsVC: UIViewController, RepositoryDetailsVCInput {
     
     // Outlets
     @IBOutlet weak var urlButton: UIButton!
