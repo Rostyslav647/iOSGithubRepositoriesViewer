@@ -22,6 +22,7 @@
 		63C75E2820418F4000EB91BB /* ItemPropertyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C75E2720418F4000EB91BB /* ItemPropertyView.xib */; };
 		63C75E2A20418F6F00EB91BB /* ItemPropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C75E2920418F6F00EB91BB /* ItemPropertyView.swift */; };
 		63C75E2D20419CD000EB91BB /* AssetsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C75E2C20419CCF00EB91BB /* AssetsImages.swift */; };
+		63C75E302041A6A200EB91BB /* CellDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C75E2F2041A6A200EB91BB /* CellDescriptor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		63C75E2720418F4000EB91BB /* ItemPropertyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemPropertyView.xib; sourceTree = "<group>"; };
 		63C75E2920418F6F00EB91BB /* ItemPropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPropertyView.swift; sourceTree = "<group>"; };
 		63C75E2C20419CCF00EB91BB /* AssetsImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsImages.swift; sourceTree = "<group>"; };
+		63C75E2F2041A6A200EB91BB /* CellDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDescriptor.swift; sourceTree = "<group>"; };
 		7949A4BDEAB18E0A61BE9A0A /* Pods-GithubRepositories.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubRepositories.release.xcconfig"; path = "Pods/Target Support Files/Pods-GithubRepositories/Pods-GithubRepositories.release.xcconfig"; sourceTree = "<group>"; };
 		E9E16D9505AB74A5AB19EA29 /* Pods_GithubRepositories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubRepositories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 		63B3D096204068DF00DA74ED /* GithubRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				63C75E2E2041A68100EB91BB /* Common */,
 				63C75E2B20419CCF00EB91BB /* Generated */,
 				63C75E2420418E2700EB91BB /* Extensions */,
 				631137F020407A68003DBF6D /* Constants */,
@@ -168,6 +171,14 @@
 				63C75E2C20419CCF00EB91BB /* AssetsImages.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		63C75E2E2041A68100EB91BB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				63C75E2F2041A6A200EB91BB /* CellDescriptor.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		F706BACA7697AB17057BDD41 /* Pods */ = {
@@ -317,6 +328,7 @@
 			files = (
 				63C75E2620418EC600EB91BB /* ViewExtension.swift in Sources */,
 				631137EC204078C4003DBF6D /* RepositoryViewModel.swift in Sources */,
+				63C75E302041A6A200EB91BB /* CellDescriptor.swift in Sources */,
 				63B3D09A204068E000DA74ED /* RepositoriesVC.swift in Sources */,
 				631137EF204079F2003DBF6D /* GithubAPIService.swift in Sources */,
 				63C75E2D20419CD000EB91BB /* AssetsImages.swift in Sources */,
