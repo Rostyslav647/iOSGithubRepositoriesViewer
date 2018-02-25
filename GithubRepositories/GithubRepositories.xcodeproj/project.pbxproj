@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		462524BF72E32C9B21001FA6 /* Pods_GithubRepositories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E16D9505AB74A5AB19EA29 /* Pods_GithubRepositories.framework */; };
+		631137EC204078C4003DBF6D /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631137EB204078C4003DBF6D /* RepositoryViewModel.swift */; };
 		631137EF204079F2003DBF6D /* GithubAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631137EE204079F2003DBF6D /* GithubAPIService.swift */; };
 		631137F220407A78003DBF6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631137F120407A78003DBF6D /* Constants.swift */; };
 		63489E3220406F0E00B80EB9 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63489E3120406F0E00B80EB9 /* Repository.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		3CC7E216E4413B4CB0190617 /* Pods-GithubRepositories.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubRepositories.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GithubRepositories/Pods-GithubRepositories.debug.xcconfig"; sourceTree = "<group>"; };
+		631137EB204078C4003DBF6D /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 		631137EE204079F2003DBF6D /* GithubAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIService.swift; sourceTree = "<group>"; };
 		631137F120407A78003DBF6D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		63489E3120406F0E00B80EB9 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		63489E2E20406E7A00B80EB9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				631137EB204078C4003DBF6D /* RepositoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				631137EC204078C4003DBF6D /* RepositoryViewModel.swift in Sources */,
 				63B3D09A204068E000DA74ED /* RepositoriesVC.swift in Sources */,
 				631137EF204079F2003DBF6D /* GithubAPIService.swift in Sources */,
 				63C75E2D20419CD000EB91BB /* AssetsImages.swift in Sources */,
