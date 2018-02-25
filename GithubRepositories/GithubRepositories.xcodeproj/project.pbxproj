@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		462524BF72E32C9B21001FA6 /* Pods_GithubRepositories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E16D9505AB74A5AB19EA29 /* Pods_GithubRepositories.framework */; };
 		631137EF204079F2003DBF6D /* GithubAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631137EE204079F2003DBF6D /* GithubAPIService.swift */; };
+		631137F220407A78003DBF6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631137F120407A78003DBF6D /* Constants.swift */; };
 		63489E3220406F0E00B80EB9 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63489E3120406F0E00B80EB9 /* Repository.swift */; };
 		63B3D098204068E000DA74ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3D097204068DF00DA74ED /* AppDelegate.swift */; };
 		63B3D09A204068E000DA74ED /* RepositoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3D099204068E000DA74ED /* RepositoriesVC.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		3CC7E216E4413B4CB0190617 /* Pods-GithubRepositories.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubRepositories.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GithubRepositories/Pods-GithubRepositories.debug.xcconfig"; sourceTree = "<group>"; };
 		631137EE204079F2003DBF6D /* GithubAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIService.swift; sourceTree = "<group>"; };
+		631137F120407A78003DBF6D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		63489E3120406F0E00B80EB9 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		63B3D094204068DF00DA74ED /* GithubRepositories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubRepositories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B3D097204068DF00DA74ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 				631137EE204079F2003DBF6D /* GithubAPIService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		631137F020407A68003DBF6D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				631137F120407A78003DBF6D /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		63489E2D20406E6F00B80EB9 /* Controller */ = {
@@ -111,6 +121,7 @@
 		63B3D096204068DF00DA74ED /* GithubRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				631137F020407A68003DBF6D /* Constants */,
 				631137ED204079C7003DBF6D /* Services */,
 				63489E2F20406E8600B80EB9 /* Model */,
 				63489E2E20406E7A00B80EB9 /* ViewModel */,
@@ -273,6 +284,7 @@
 				631137EF204079F2003DBF6D /* GithubAPIService.swift in Sources */,
 				63B3D098204068E000DA74ED /* AppDelegate.swift in Sources */,
 				63489E3220406F0E00B80EB9 /* Repository.swift in Sources */,
+				631137F220407A78003DBF6D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
