@@ -11,7 +11,7 @@ import RxSwift
 import SafariServices
 
 class RepositoryDetailsVC: UIViewController {
-
+    
     // Outlets
     @IBOutlet weak var urlButton: UIButton!
     @IBOutlet weak var authorLabel: UILabel!
@@ -22,11 +22,53 @@ class RepositoryDetailsVC: UIViewController {
     
     // Variable
     let viewModel = RepositoryDetailsViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateView(viewModel.repository.value)
+        setupBindings()
+    }
+    
+    func setupBindings(){
+        viewModel.tagsObservable
+            .map{ tags -> String in
+                let tagsString = tags.reduce("", { result, tag -> String in
+                    return result + (tag.name ?? "") + "\n"
+                })
+                return tagsString.isEmpty ? "No tags" : tagsString
+            }
+            .bind(to: tagsLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.repositoryObservable
+            .map { repository -> String in
+                return repository.owner?.login ?? "No authors name"
+            }
+            .bind(to: authorLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.repositoryObservable
+            .map { repository -> String in
+                return repository.description ?? "No description"
+            }
+            .bind(to: descriptionLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.repositoryObservable
+            .map { repository -> String in
+                return repository.htmlURL ?? "No URL"
+            }
+            .bind(to: urlButton.rx.title(for: .normal))
+            .disposed(by: disposeBag)
+        
+        viewModel.repositoryObservable
+            .map { repository -> String in
+                return repository.name ?? "No name"
+            }
+            .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
     }
     
     func configure(with model: Repository){
@@ -34,15 +76,11 @@ class RepositoryDetailsVC: UIViewController {
     }
     
     func updateView(_ model: Repository) {
-        title = model.name
-        urlButton.setTitle(model.htmlURL, for: .normal)
-        authorLabel.text = model.owner?.login
         forksView.configure(Asset.fork.image, String(model.forks ?? 0))
         starsView.configure(Asset.star.image, String(model.stargazersCount ?? 0))
-        descriptionLabel.text = model.description ?? "No description"
-        tagsLabel.text = model.tagsURL ?? "No tags"
     }
     
+    // Handlers
     @IBAction func urlButtonTapped(_ sender: UIButton) {
         guard let url = URL(string: sender.currentTitle ?? "") else { return }
         let safariVC = SFSafariViewController(url: url, entersReaderIfAvailable: true)
